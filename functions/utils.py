@@ -32,7 +32,6 @@ def get_sunrise_data(day):
 
 def turn_off(sunrise: datetime, address: str):
     now = datetime.datetime.utcnow()
-    now = now.replace(year=SUNRISE_DATA_YEAR)
     state = status(address)
     if now > sunrise and state == "on":
         logger.info("Turning lamp off")
@@ -41,7 +40,6 @@ def turn_off(sunrise: datetime, address: str):
 
 def turn_on(sunset: datetime, address: str):
     now = datetime.datetime.utcnow()
-    now = now.replace(year=SUNRISE_DATA_YEAR)
     state = status(address)
     if now > sunset and state == "off":
         logger.info("Turning lamp on")
@@ -50,7 +48,6 @@ def turn_on(sunset: datetime, address: str):
 
 def toggle_lamp(sunrise: datetime, sunset: datetime, address: str):
     now = datetime.datetime.utcnow()
-    now = now.replace(year=SUNRISE_DATA_YEAR)
     midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
     state = status(address)
 

@@ -17,7 +17,7 @@ def test_get_sunrise_data():
 
     assert (
         get_sunrise_data(datetime.date(2021, 1, 1).isoformat())["sunrise"]
-        == "6:12:39 AM"
+        == "6:44:16 AM"
     )
 
 
@@ -45,7 +45,7 @@ def test_night_after_midnight(requests):
 def test_during_day(requests):
     requests.get.return_value = mock.Mock(text="#state-->on")
 
-    with freeze_time("2020-01-01 7:00"):
+    with freeze_time("2021-01-01 7:00"):
         toggle_lamp(
             sunrise=datetime.datetime(2020, 1, 1, 6),
             sunset=datetime.datetime(2020, 1, 1, 19),
